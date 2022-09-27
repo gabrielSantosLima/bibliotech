@@ -1,0 +1,64 @@
+
+h1 {
+    font-size: 300%;
+}
+
+h3 {
+    font-size: 150%;
+}
+
+#modLivros{
+    float:left;
+}
+
+#modAutores{
+    float: left;
+}
+
+#modEditoras{
+    float: left;
+}
+
+#cadLivro {
+    position:absolute; 
+    top:5%;
+    left:90%;
+    transform: translate(-50%, -50%);
+}
+
+#formLivro {
+    position:absolute; 
+    top:20%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+#cadAutores {
+    position:absolute; 
+    top:5%;
+    left:90%;
+    transform: translate(-50%, -50%);
+}
+
+#formAutores {
+    position:absolute; 
+    top:20%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+#cadEditoras {
+    position:absolute; 
+    top:5%;
+    left:90%;
+    transform: translate(-50%, -50%);
+}
+
+#formEditoras {
+    position:absolute; 
+    top:20%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+
