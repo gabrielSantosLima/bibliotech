@@ -9,14 +9,20 @@ h3 {
 
 #modLivros{
     float:left;
+    width: 600px;
+    display: table-cell;
 }
 
 #modAutores{
     float: left;
+    width: 600px;
+    display: table-cell
 }
 
 #modEditoras{
     float: left;
+    width: 600px;
+
 }
 
 #cadLivro {
@@ -27,8 +33,9 @@ h3 {
 }
 
 #formLivro {
+    width: 150px;
     position:absolute; 
-    top:20%;
+    top:40%;
     left:50%;
     transform: translate(-50%, -50%);
 }
@@ -41,8 +48,9 @@ h3 {
 }
 
 #formAutores {
+    width: 150px;
     position:absolute; 
-    top:20%;
+    top:40%;
     left:50%;
     transform: translate(-50%, -50%);
 }
@@ -55,8 +63,9 @@ h3 {
 }
 
 #formEditoras {
+    width: 150px;
     position:absolute; 
-    top:20%;
+    top:40%;
     left:50%;
     transform: translate(-50%, -50%);
 }
