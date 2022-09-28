@@ -1,47 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilos-globais.css">
-    <link rel="stylesheet" href="css/editoras.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/estilos-globais.css" />
+    <link rel="stylesheet" href="css/editoras.css" />
     <title>BIBLIOtech</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="header">
-        <a href="index.html">
-            <img src="./resources/arrowleft.svg" alt="Voltar">
-        </a>
-        <h1>Editoras</h1>
+      <a href="index.html">
+        <img src="./resources/arrowleft.svg" alt="Voltar" />
+      </a>
+      <h1>Editoras</h1>
     </div>
     <form class="form">
-        <legend class="form-title">Criar Editora</legend>
-        <div class="form-group">
-            <input type="text" name="nome" id="nome" placeholder="Nome" />
-            <input type="text" name="endereco" id="endereco" placeholder="Endereço" />
-        </div>
-        <div class="form-group">
-            <button class="button submit-button">CADASTRAR</button>
-        </div>
+      <legend class="form-title">Criar Editora</legend>
+      <div class="form-group">
+        <input type="text" name="nome" id="name" placeholder="Nome" />
+        <input
+          type="text"
+          name="endereco"
+          id="address"
+          placeholder="Endereço"
+        />
+      </div>
+      <div class="form-group">
+        <button class="button submit-button">CADASTRAR</button>
+      </div>
     </form>
-    <div class="editoras">
-        <!-- <div class="editora">
-            <label class="title">Meu nome</label>
-            <div class="description">
-                <label class="address">Meu Endereço</label>
-            </div>
-            <div class="actions">
-                <button class="delete-button">
-                    <img src="./resources/trash.svg" alt="Deletar">
-                </button>
-            </div>
-        </div> -->
-    </div>
-
+    <div class="editoras"></div>
     <script src="js/editoras.js"></script>
-</body>
-
+  </body>
 </html>

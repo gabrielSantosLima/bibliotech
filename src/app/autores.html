@@ -1,47 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilos-globais.css">
-    <link rel="stylesheet" href="css/autores.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/estilos-globais.css" />
+    <link rel="stylesheet" href="css/autores.css" />
     <title>BIBLIOtech</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="header">
-        <a href="index.html">
-            <img src="./resources/arrowleft.svg" alt="Voltar">
-        </a>
-        <h1>Autores</h1>
+      <a href="index.html">
+        <img src="./resources/arrowleft.svg" alt="Voltar" />
+      </a>
+      <h1>Autores</h1>
     </div>
     <form class="form">
-        <legend class="form-title">Criar Autor(a)</legend>
-        <div class="form-group">
-            <input type="text" name="nome" id="name" placeholder="Nome" />
-            <input type="text" name="nacionalidade" id="nacionality" placeholder="Nacionalidade" />
-        </div>
-        <div class="form-group">
-            <button class="button submit-button">CADASTRAR</button>
-        </div>
+      <legend class="form-title">Criar Autor(a)</legend>
+      <div class="form-group">
+        <input type="text" name="nome" id="name" placeholder="Nome" />
+        <input
+          type="text"
+          name="nacionalidade"
+          id="nacionality"
+          placeholder="Nacionalidade"
+        />
+      </div>
+      <div class="form-group">
+        <button class="button submit-button">CADASTRAR</button>
+      </div>
     </form>
-    <div class="autores">
-        <!-- <div class="autor">
-            <label class="title">Meu nome</label>
-            <div class="description">
-                <label class="nacionality">Minha nacionalidade</label>
-            </div>
-            <div class="actions">
-                <button class="delete-button">
-                    <img src="./resources/trash.svg" alt="Deletar">
-                </button>
-            </div>
-        </div> -->
-    </div>
-
+    <div class="autores"></div>
     <script src="js/autores.js"></script>
-</body>
-
+  </body>
 </html>
