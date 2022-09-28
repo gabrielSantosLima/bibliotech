@@ -1,26 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="basico.css">
-    <title>HomePage</title>
+    <link rel="stylesheet" href="css/estilos-globais.css">
+    <link rel="stylesheet" href="css/editoras.css">
+    <title>BIBLIOtech</title>
 </head>
+
 <body>
-    <a href="homePage.html"><input type="button" value="Voltar"></a>
-    <pre><h1>   Editoras</h1></pre>
-        <form>
-            <div id="cadEditoras">
-                <input type="button" value="Cadastrar Editora"/><br>
+    <div class="header">
+        <a href="index.html">
+            <img src="./resources/arrowleft.svg" alt="Voltar">
+        </a>
+        <h1>Editoras</h1>
+    </div>
+    <form class="form">
+        <legend class="form-title">Criar Editora</legend>
+        <div class="form-group">
+            <input type="text" name="nome" id="nome" placeholder="Nome" />
+            <input type="text" name="endereco" id="endereco" placeholder="Endereço" />
+        </div>
+        <div class="form-group">
+            <button class="button submit-button">CADASTRAR</button>
+        </div>
+    </form>
+    <div class="editoras">
+        <!-- <div class="editora">
+            <label class="title">Meu nome</label>
+            <div class="description">
+                <label class="address">Meu Endereço</label>
             </div>
-            <div id="formEditoras">
-                <label for="nome">Nome</label>
-                <input type="text" name="nome" id = "nome"/>
-                <br>
-                <label for="nome">Endereço</label>
-                <input type="text" name="endereco" id="endereco" /><br>
+            <div class="actions">
+                <button class="delete-button">
+                    <img src="./resources/trash.svg" alt="Deletar">
+                </button>
             </div>
-        </form>
+        </div> -->
+    </div>
+
+    <script src="js/editoras.js"></script>
 </body>
+
 </html>

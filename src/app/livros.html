@@ -1,33 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="basico.css">
-    <title>HomePage</title>
+    <link rel="stylesheet" href="css/estilos-globais.css">
+    <link rel="stylesheet" href="css/livros.css">
+    <title>BIBLIOtech</title>
 </head>
+
 <body>
-    <a href="homePage.html"><input type="button" value="Voltar"></a> 
-    
-    <pre><h1>Livros</h1></pre>
-    <form>
-        <div id="cadLivro">
-            <input type="button" value="Cadastrar livro"/><br>
+    <div class="header">
+        <a href="index.html">
+            <img src="./resources/arrowleft.svg" alt="Voltar">
+        </a>
+        <h1>Livros</h1>
+    </div>
+    <form class="form">
+        <legend class="form-title">Criar Livro</legend>
+        <div class="form-group">
+            <input type="text" name="titulo" placeholder="Título" />
+            <input type="number" name="nPaginas" placeholder="Número de páginas" />
+            <select class="dropdown-autores">
+                <!-- Listagem de Nomes de Autores -->
+            </select>
+            <select class="dropdown-editoras">
+                <!-- Listagem de Nomes de Editoras -->
+            </select>
         </div>
-        <div id="formLivro">
-            <label for="nome">Título</label>
-            <input type="text" name="titulo" id = "titulo"/><br>
-            <br>
-            <label for="Páginas">Autor</label>
-            <input type="number" name="autor" id = "autor"/><br>
-            <br>
-            <label for="Autor">Editora</label>
-            <input type="text" name="editora" id = "editora"/><br>
-            <br>
-            <label for="Editora">Num. Páginas</label>
-            <input type="text" name="npaginas" id = "npaginas" /><br>
+        <div class="form-group">
+            <button class="button submit-button">CADASTRAR</button>
         </div>
     </form>
+    <div class="livros">
+        <!-- <div class="livro">
+            <label class="title">Meu título</label>
+            <div class="description">
+                <label class="pages">0 páginas</label>
+                <label class="author">Escrito por: Meu Autor</label>
+                <label class="publisher">Publicado por: Minha Editora</label>
+            </div>
+            <div class="actions">
+                <button class="delete-button">
+                    <img src="./resources/trash.svg" alt="Deletar">
+                </button>
+            </div>
+        </div> -->
+    </div>
 </body>
+
 </html>
