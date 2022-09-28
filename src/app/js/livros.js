@@ -1,43 +1,14 @@
-class Livro {
-    id;
-    titulo;
-    autor;
-    editora;
-    numPag;
-
-    constructor(id, titulo, autor, editora, numPag,) {
-        this.id = id;
-        this.titulo = titulo;
-        this.autor = autor;
-        this.editora = editora;
-        this.numPag = numPag;
-    }
-}
-
-class LivroService {
-    buscarTodos() {
-        let livros = [];
-        // GET para API
-        return livros;
-    }
-
-    criar(titulo, autor, editora, numPag) {
-        const novoLivro = new Livro(undefined, titulo, autor, editora, numPag);
-        // POST para API
-    }
-
-    deletarPorId(id) {
-        // DELETE para API
-    }
-}
+import { EditoraService } from "./services/EditoraService.js" 
+import { AutorService } from "./services/AutorService.js" 
+import { LivroService } from './services/LivroService.js'
 
 function onSubmit() {
-    const titulo = document.querySelector("#titulo").value;
-    const autor = document.querySelector("#autor").value;
-    const editora = document.querySelector("#numPag").value;
-    const numPag = document.querySelector("#numPag").value;
+    const titulo = document.querySelector("#title").value;
+    const autor = document.querySelector("#author").value;
+    const editora = document.querySelector("#publisher").value;
+    const numPag = document.querySelector("#pages").value;
     const livroService = new LivroService();
-    livroService.criar(titulo, numPag);
+    livroService.criar(titulo, autor, editora, numPag);
 }
 
 function onDelete(event) {
@@ -46,7 +17,7 @@ function onDelete(event) {
     livroService.deletarPorId(id);
 }
 
-function onLoad() {
+function loadBooks(){
     const livroService = new LivroService();
     const livros = livroService.buscarTodos();
     const livrosDiv = document.querySelector(".livros");
@@ -57,21 +28,57 @@ function onLoad() {
 
     function livroToHTML(livro) {
         return `
-    <div data-id="${livro.id}" class="livro">
-        <label class="title">${livro.titulo}</label>
-        <div class="description">
-            <label class="pages">${livro.numPag}</label>
-            <label class="author">Escrito por: Meu Autor</label>
-            <label class="publisher">Publicado por: Minha Editora</label>
+        <div data-id="${livro.id}" class="livro">
+            <label class="title">${livro.titulo}</label>
+            <div class="description">
+                <label class="pages">${livro.numPag} página(s)</label>
+                <label class="author">Escrito por: ${livro.autor.nome}</label>
+                <label class="publisher">Publicado por: ${livro.editora.nome}</label>
+            </div>
+            <div class="actions">
+                <button data-id="${livro.id}" class="delete-button">
+                    <img data-id="${livro.id}" src="./resources/trash.svg" alt="Deletar">
+                </button>
+            </div>
         </div>
-        <div class="actions">
-            <button data-id="${livro.id}" class="delete-button">
-                <img data-id="${livro.id}" src="./resources/trash.svg" alt="Deletar">
-            </button>
-        </div>
-    </div>
-    `;
+        `;
     }
+}
+
+function loadAuthorsNames(){
+    const autorSelect = document.querySelector('#author')
+    const autorService = new AutorService()
+    const autores = autorService.buscarTodos()
+    autores.forEach(autor => {
+        autorSelect.innerHTML += autorToOptionHTML(autor)
+    })
+
+    function autorToOptionHTML(autor){
+        return `
+        <option value="${autor.id}">${autor.nome}</option>
+        `
+    }
+}
+
+function loadPublishersNames(){
+    const editoraSelect = document.querySelector('#publisher')
+    const editoraService = new EditoraService()
+    const editoras = editoraService.buscarTodos()
+    editoras.forEach(editora => {
+        editoraSelect.innerHTML += editoraToOptionHTML(editora)
+    })
+
+    function editoraToOptionHTML(editora){
+        return `
+        <option value="${editora.id}">${editora.nome}</option>
+        `
+    }
+}
+
+function onLoad() {
+    loadBooks()
+    loadAuthorsNames()
+    loadPublishersNames()
 }
 
 function addEvents() {

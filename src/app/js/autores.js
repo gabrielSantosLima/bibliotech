@@ -1,31 +1,4 @@
-class Autor {
-  id;
-  nome;
-  nacionalidade;
-
-  constructor(id, nome, nacionalidade) {
-    this.id = id;
-    this.nome = nome;
-    this.nacionalidade = nacionalidade;
-  }
-}
-
-class AutorService {
-  buscarTodos() {
-    let autores = [];
-    // GET para API
-    return autores;
-  }
-
-  criar(nome, nacionalidade) {
-    const novoAutor = new Autor(undefined, nome, nacionalidade);
-    // POST para API
-  }
-
-  deletarPorId(id) {
-    // DELETE para API
-  }
-}
+import { AutorService } from './services/AutorService.js'
 
 function onSubmit() {
   const nome = document.querySelector("#name").value;
@@ -40,7 +13,7 @@ function onDelete(event) {
   autorService.deletarPorId(id);
 }
 
-function onLoad() {
+function loadAuthors(){
   const autorService = new AutorService();
   const autores = autorService.buscarTodos();
   const autoresDiv = document.querySelector(".autores");
@@ -64,6 +37,10 @@ function onLoad() {
     </div>
     `;
   }
+}
+
+function onLoad() {
+  loadAuthors()
 }
 
 function addEvents() {
