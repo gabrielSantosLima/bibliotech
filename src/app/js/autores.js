@@ -1,6 +1,7 @@
 import { AutorService } from './services/AutorService.js'
 
-function onSubmit() {
+function onSubmit(event) {
+  event.preventDefault();
   const nome = document.querySelector("#name").value;
   const nacionalidade = document.querySelector("#nacionality").value;
   const autorService = new AutorService();
@@ -24,14 +25,14 @@ async function loadAuthors(){
 
   function autorToHTML(autor) {
     return `
-    <div data-id="${autor.id}" class="autor">
+    <div data-id="${autor._id}" class="autor">
       <label class="title">${autor.nome}</label>
       <div class="description">
           <label class="nacionality">${autor.nacionalidade}</label>
       </div>
       <div class="actions">
-          <button data-id="${autor.id}" class="delete-button">
-              <img data-id="${autor.id}" src="./resources/trash.svg" alt="Deletar">
+          <button data-id="${autor._id}" class="delete-button">
+              <img data-id="${autor._id}" src="./resources/trash.svg" alt="Deletar">
           </button>
       </div>
     </div>
@@ -40,13 +41,18 @@ async function loadAuthors(){
 }
 
 async function onLoad() {
-  loadAuthors()
+  return loadAuthors();
 }
 
 function addEvents() {
-  onLoad();
-  document.querySelector(".form")?.addEventListener("submit", onSubmit);
-  document.querySelector(".delete-button")?.addEventListener("click", onDelete);
+  onLoad().then(() => {
+    document.querySelector(".form")?.addEventListener("submit", onSubmit);
+  
+    const buttons = document.getElementsByClassName("delete-button");
+    for (const button of buttons) {
+      button.addEventListener('click', onDelete)
+    }
+  });
 }
 
 function main() {

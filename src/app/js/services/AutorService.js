@@ -19,7 +19,7 @@ export class AutorService {
   
     async criar(nome, nacionalidade) {
       const novoAutor = new Autor(undefined, nome, nacionalidade);
-      
+
       try{
         const res = await post(PATH, novoAutor);
         
