@@ -4,7 +4,10 @@ export const get = (path) => fetch(`${API_URL}/${path}`)
 
 export const post = (path, data) => fetch(`${API_URL}/${path}`, {
     method: 'POST',
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
+    headers: {
+        'Content-Type': 'application/json'
+    }
 })
 
 export const put = (path) => fetch(`${API_URL}/${path}`, {
