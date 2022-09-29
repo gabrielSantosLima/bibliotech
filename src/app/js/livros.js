@@ -17,9 +17,9 @@ function onDelete(event) {
     livroService.deletarPorId(id);
 }
 
-function loadBooks(){
+async function loadBooks(){
     const livroService = new LivroService();
-    const livros = livroService.buscarTodos();
+    const livros = await livroService.buscarTodos();
     const livrosDiv = document.querySelector(".livros");
 
     livros.forEach((livro) => {
@@ -45,10 +45,11 @@ function loadBooks(){
     }
 }
 
-function loadAuthorsNames(){
+async function loadAuthorsNames(){
     const autorSelect = document.querySelector('#author')
     const autorService = new AutorService()
-    const autores = autorService.buscarTodos()
+    const autores = await autorService.buscarTodos()
+
     autores.forEach(autor => {
         autorSelect.innerHTML += autorToOptionHTML(autor)
     })
@@ -60,10 +61,11 @@ function loadAuthorsNames(){
     }
 }
 
-function loadPublishersNames(){
+async function loadPublishersNames(){
     const editoraSelect = document.querySelector('#publisher')
     const editoraService = new EditoraService()
-    const editoras = editoraService.buscarTodos()
+    const editoras = await editoraService.buscarTodos()
+
     editoras.forEach(editora => {
         editoraSelect.innerHTML += editoraToOptionHTML(editora)
     })
@@ -75,16 +77,15 @@ function loadPublishersNames(){
     }
 }
 
-function onLoad() {
-    loadBooks()
-    loadAuthorsNames()
-    loadPublishersNames()
+async function onLoad() {
+    return Promise.allSettled([loadBooks(), loadAuthorsNames(), loadPublishersNames()]);
 }
 
 function addEvents() {
-    onLoad();
-    document.querySelector(".form")?.addEventListener("submit", onSubmit);
-    document.querySelector(".delete-button")?.addEventListener("click", onDelete);
+    onLoad().then(() => {
+        document.querySelector(".form")?.addEventListener("submit", onSubmit);
+        document.querySelector(".delete-button")?.addEventListener("click", onDelete);
+    });
 }
 
 function main() {
