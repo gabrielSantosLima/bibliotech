@@ -17,9 +17,8 @@ export class LivroService {
       return livros;
     }
 
-    async criar(titulo, autor, editora, numPag) {
-      const novoLivro = new Livro(undefined, titulo, autor, editora, numPag);
-
+    async criar(titulo, autor, editora, nPaginas) {
+      const novoLivro = new Livro(undefined, titulo, autor, editora, +nPaginas);
       try{
         const res = await post(PATH, novoLivro);
         

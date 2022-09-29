@@ -3,13 +3,13 @@ export class Livro {
     titulo;
     autor;
     editora;
-    numPag;
+    nPaginas;
 
-    constructor(id, titulo, autor, editora, numPag) {
+    constructor(id, titulo, autor, editora, nPaginas) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.editora = editora;
-        this.numPag = numPag;
+        this.nPaginas = nPaginas;
     }
 }
