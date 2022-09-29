@@ -9,13 +9,13 @@ function onSubmit(event) {
   const editora = document.querySelector("#publisher").value;
   const numPag = document.querySelector("#pages").value;
   const livroService = new LivroService();
-  livroService.criar(titulo, autor, editora, numPag);
+  livroService.criar(titulo, autor, editora, numPag).then(() => location.reload());
 }
 
 function onDelete(event) {
   const { id } = event.target.dataset;
   const livroService = new LivroService();
-  livroService.deletarPorId(id);
+  livroService.deletarPorId(id).then(() => location.reload());
 }
 
 async function loadBooks() {

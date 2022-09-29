@@ -5,13 +5,13 @@ function onSubmit(event) {
   const nome = document.querySelector("#name").value;
   const nacionalidade = document.querySelector("#nacionality").value;
   const autorService = new AutorService();
-  autorService.criar(nome, nacionalidade);
+  autorService.criar(nome, nacionalidade).then(() => location.reload());
 }
 
 function onDelete(event) {
   const { id } = event.target.dataset;
   const autorService = new AutorService();
-  autorService.deletarPorId(id);
+  autorService.deletarPorId(id).then(() => location.reload());
 }
 
 async function loadAuthors(){

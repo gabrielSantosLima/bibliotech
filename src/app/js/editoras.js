@@ -5,13 +5,13 @@ function onSubmit(event) {
   const nome = document.querySelector("#name").value;
   const endereco = document.querySelector("#address").value;
   const editoraService = new EditoraService();
-  editoraService.criar(nome, endereco);
+  editoraService.criar(nome, endereco).then(() => location.reload());
 }
   
 function onDelete(event) {
   const { id } = event.target.dataset;
   const editoraService = new EditoraService();
-  editoraService.deletarPorId(id);
+  editoraService.deletarPorId(id).then(() => location.reload());
 }
 
 async function loadPublishers(){
