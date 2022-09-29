@@ -1,19 +1,46 @@
+import {get, post, del} from "../api.js"
 import { Autor } from '../entities/Autor.js'
 
+const PATH = "autores"
+
 export class AutorService {
-    buscarTodos() {
+    async buscarTodos() {
       let autores = [];
-      // GET para API
+      
+      try{
+        const res = await get(PATH);
+        autores = await res.json();
+      } catch(err) {
+        console.log(err);
+      }
+
       return autores;
     }
   
-    criar(nome, nacionalidade) {
+    async criar(nome, nacionalidade) {
       const novoAutor = new Autor(undefined, nome, nacionalidade);
-      // POST para API
+      
+      try{
+        const res = await post(PATH, novoAutor);
+        
+        if (res.status === 201) return novoAutor;
+        else throw new Error('Falha ao cadastrar autor.')
+
+      } catch(err) {
+        console.log(err);
+      }
     }
   
-    deletarPorId(id) {
-      // DELETE para API
+    async deletarPorId(id) {
+      try{
+        const res = await del(`${PATH}/${id}`);
+
+        if (res.status === 200) return;
+        else throw new Error('Falha ao deletar autor.')
+      } 
+      catch(err){
+        console.log(err);
+      }
     }
 }
   

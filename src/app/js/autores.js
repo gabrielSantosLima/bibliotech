@@ -13,9 +13,9 @@ function onDelete(event) {
   autorService.deletarPorId(id);
 }
 
-function loadAuthors(){
+async function loadAuthors(){
   const autorService = new AutorService();
-  const autores = autorService.buscarTodos();
+  const autores = await autorService.buscarTodos();
   const autoresDiv = document.querySelector(".autores");
 
   autores.forEach((autor) => {
@@ -39,7 +39,7 @@ function loadAuthors(){
   }
 }
 
-function onLoad() {
+async function onLoad() {
   loadAuthors()
 }
 

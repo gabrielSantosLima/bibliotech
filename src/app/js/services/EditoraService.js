@@ -1,18 +1,46 @@
+import {get, post, del} from "../api.js"
 import { Editora } from '../entities/Editora.js'
+
+const PATH = "editoras"
   
 export class EditoraService {
-    buscarTodos() {
+    async buscarTodos() {
       let editoras = [];
-      // GET para API
+      
+      try{
+        const res = await get(PATH);
+        editoras = await res.json();
+      } 
+      catch(err) {
+        console.log(err);
+      }
+
       return editoras;
     }
   
-    criar(nome, endereco) {
+    async criar(nome, endereco) {
       const novaEditora = new Editora(undefined, nome, endereco);
-      // POST para API
+
+      try{
+        const res = await post(PATH, novaEditora)
+        
+        if (res.status === 201) return novaEditora
+        else throw new Error('Falha ao cadastrar editora.')
+      } 
+      catch(err){
+        console.log(err)
+      }
     }
   
-    deletarPorId(id) {
-      // DELETE para API
+    async deletarPorId(id) {
+      try{
+        const res = await del(`${PATH}/${id}`)
+
+        if (res.status === 200) return;
+        else throw new Error('Falha ao deletar editora.')
+
+      } catch(err){
+        console.log(err)
+      }
     }
 }

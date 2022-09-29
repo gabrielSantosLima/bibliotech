@@ -13,9 +13,9 @@ function onDelete(event) {
     editoraService.deletarPorId(id);
   }
 
-function loadPublishers(){
+async function loadPublishers(){
   const editoraService = new EditoraService();
-  const editoras = editoraService.buscarTodos();
+  const editoras = await editoraService.buscarTodos();
   const editorasDiv = document.querySelector(".editoras");
 
   editoras.forEach((editora) => {
