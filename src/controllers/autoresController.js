@@ -22,7 +22,7 @@ class AutorController {
     static excluirAutor = (req, res) => {
         const id = req.params.id;
 
-        autores.findByIdAndUpdate(id, (err) => {
+        autores.findByIdAndDelete(id, (err) => {
             if(!err){
                 res.status(200).send({message: 'Autor removido'})
             }else {
@@ -33,7 +33,6 @@ class AutorController {
 
     static cadastrarAutor = (req, res) =>{
         let autor = new autores(req.body)
-
         autor.save((err) => {
             if(err) {
                 res.status(500).send({message: err.message})
